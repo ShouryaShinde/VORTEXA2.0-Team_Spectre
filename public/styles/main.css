@@ -41,10 +41,7 @@ body {
 
 .site-header img,
 .LogoImage {
-  height: 40px;
-  max-height: 40px;
-  width: auto;
-  object-fit: contain;
+  height : 3rem ;
 }
 
 /* ===============================
