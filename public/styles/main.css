@@ -41,10 +41,7 @@ body {
 /* Prevent logo from growing on scroll */
 .site-header img,
 .LogoImage {
-  height: 40px;
-  max-height: 40px;
-  width: auto;
-  object-fit: contain;
+  height : 3rem ;
 }
 
 /* Push content below header */
