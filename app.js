@@ -3,6 +3,9 @@ import bodyParser from "body-parser";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
+import summarize from "./summarize.js";
+
+
 
 const app = express();
 const port = 3000;
@@ -13,7 +16,7 @@ app.set("view engine", "ejs");
 // Middleware
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use("/", summarize);
 // Create uploads folder if it doesn't exist
 const uploadFolder = path.join(process.cwd(), "uploads");
 if (!fs.existsSync(uploadFolder)) fs.mkdirSync(uploadFolder);
