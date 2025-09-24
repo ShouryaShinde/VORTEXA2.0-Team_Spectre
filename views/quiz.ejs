@@ -1,5 +1,80 @@
 <%- include("partials/header.ejs") %>
 
+<!-- Quiz Container -->
+<div class="quiz-container">
+    <!-- Question Box -->
+    <div class="question-box">
+        <!-- Empty wide box for question -->
+    </div>
+
+    <!-- Options Container -->
+    <div class="options-container">
+        <div class="option">Option 1</div>
+        <div class="option">Option 2</div>
+        <div class="option">Option 3</div>
+        <div class="option">Option 4</div>
+    </div>
+</div>
+
+<style>
+    /* Quiz Container */
+    .quiz-container {
+        width: 90%;
+        max-width: 800px;
+        margin: 2rem auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    /* Question Box */
+    .question-box {
+        width: 100%;
+        min-height: 150px;
+        border: 2px solid #2563eb;
+        /* blue border */
+        border-radius: 12px;
+        background-color: #f3f4f6;
+        /* light gray background */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #111827;
+    }
+
+    /* Options Container */
+    .options-container {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        /* wrap on smaller screens */
+        justify-content: space-between;
+    }
+
+    /* Option Box */
+    .option {
+        flex: 1 1 calc(50% - 0.5rem);
+        /* two options per row */
+        min-height: 60px;
+        background-color: #fff;
+        border: 2px solid #2563eb;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .option:hover {
+        background-color: #2563eb;
+        color: #fff;
+        transform: translateY(-2px);
+    }
+</style>
 
 
 <%- include("partials/footer.ejs") %>
