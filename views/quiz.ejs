@@ -1,84 +1,128 @@
 <%- include("partials/header.ejs") %>
 
-    <div class="d-flex flex-column min-vh-100">
+    <!-- Quiz Container -->
+    <div class="quiz-container">
+        <!-- Question Number -->
+        <div class="question-number" id="question-number">
+            Question 1
+        </div>
 
-        <main class="flex-fill">
-            <div class="quiz-container container my-4">
-                <!-- Question Number -->
-                <div class="question-number mb-2" id="question-number">
-                    Question 1
-                </div>
+        <!-- Question Box -->
+        <div class="question-box" id="question-box">
+            <!-- Empty wide box for question text -->
+            The question text will appear here
+        </div>
 
-                <!-- Question Box -->
-                <div class="question-box p-3 mb-3" id="question-box">
-                    Question text will appear here
-                </div>
+        <!-- Options Container -->
+        <div class="options-container">
+            <div class="option">Option 1</div>
+            <div class="option">Option 2</div>
+            <div class="option">Option 3</div>
+            <div class="option">Option 4</div>
+        </div>
 
-                <!-- Options Container (2 per row) -->
-                <div class="options-container d-flex flex-wrap gap-2 mb-3">
-                    <div class="option">Option 1</div>
-                    <div class="option">Option 2</div>
-                    <div class="option">Option 3</div>
-                    <div class="option">Option 4</div>
-                </div>
-
-                <!-- Navigation -->
-                <div class="quiz-navigation d-flex justify-content-between">
-                    <button id="prev-btn" class="btn btn-secondary">Previous</button>
-                    <button id="next-btn" class="btn btn-primary">Next</button>
-                </div>
-            </div>
-        </main>
-
+        <!-- Navigation Buttons -->
+        <div class="quiz-navigation">
+            <button id="prev-btn" class="nav-btn">Previous</button>
+            <button id="next-btn" class="nav-btn">Next</button>
+        </div>
     </div>
 
     <style>
+        /* Quiz Container */
+        .quiz-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 2rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        /* Question Number */
+        .question-number {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #2563eb;
+            /* blue */
+            text-align: left;
+            margin-bottom: 0.25rem;
+        }
+
         /* Question Box */
         .question-box {
+            width: 100%;
+            min-height: 150px;
             border: 2px solid #2563eb;
             border-radius: 12px;
-            background-color: #f3f4f6;
-            font-weight: 600;
-            color: #111827;
-            min-height: 150px;
+            background-color: #e9e9e9;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #111827;
+            padding: 0.75rem 1rem;
         }
 
-        /* Options Container: 2 per row */
+        /* Options Container */
         .options-container {
             display: flex;
-            flex-wrap: wrap;
             gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
 
+        /* Option Box */
         .option {
             flex: 1 1 calc(50% - 0.5rem);
-            /* Two per row */
             min-height: 60px;
+            background-color: #e8e8e8;
             border: 2px solid #2563eb;
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-weight: 500;
             cursor: pointer;
             transition: all 0.2s ease;
-            text-align: center;
         }
 
         .option:hover {
-            background-color: #2563eb;
+            background: linear-gradient(135deg, #1d4ed8, #2563eb);
             color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Navigation Buttons */
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+
+        .nav-btn {
+            padding: 0.6rem 1.5rem;
+            background-color: #e8e8e8;
+            color: #3d3d3d;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: rgb(70, 176, 70);
             transform: translateY(-2px);
         }
     </style>
 
     <script>
         const questions = [
-            { text: "Question 1", options: ["A1", "B1", "C1", "D1"] },
-            { text: "Question 2", options: ["A2", "B2", "C2", "D2"] },
-            { text: "Question 3", options: ["A3", "B3", "C3", "D3"] }
+            { text: "This is the text for question 1", options: ["A1", "B1", "C1", "D1"] },
+            { text: "This is the text for question 2", options: ["A2", "B2", "C2", "D2"] },
+            { text: "This is the text for question 3", options: ["A3", "B3", "C3", "D3"] }
         ];
 
         let currentQuestion = 0;
@@ -89,10 +133,10 @@
         function loadQuestion(index) {
             questionNumber.textContent = `Question ${index + 1}`;
             const q = questions[index];
+            questionBox.textContent = q.text;
             optionBoxes.forEach((opt, i) => {
                 opt.textContent = q.options[i];
             });
-            questionBox.textContent = q.text;
         }
 
         document.getElementById('next-btn').addEventListener('click', () => {
