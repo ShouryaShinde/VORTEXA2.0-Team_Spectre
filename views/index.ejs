@@ -1,33 +1,81 @@
 <%- include("partials/header.ejs") %>
 
     <!-- HERO SECTION -->
-    <section class="hero text-center d-flex flex-column justify-content-center align-items-center">
+    <section class="hero d-flex align-items-center py-5">
         <div class="container">
-            <h1 class="display-1 fw-bold">Learn Smarter, Faster, and Interactively</h1>
-            <p class="lead mt-3 mb-4">
-                Transform videos into concise summaries, adaptive quizzes, and actionable insights for better learning
-                outcomes.
-            </p>
-            <a href="#" class="btn btn-primary btn-lg shadow-lg">Get Started</a>
-        </div>
-    </section>
+            <div class="row align-items-center">
 
-    <!-- FEATURES SECTION -->
-    <section class="features py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card feature-card h-100 text-center p-4 shadow-sm border-0">
-                        <h5 class="fw-bold mb-3">Upload MP4 Videos or YouTube URLs</h5>
-                        <p>Seamlessly upload videos or paste YouTube links to start your AI-powered learning journey.
-                        </p>
-                    </div>
+                <!-- Left Side: Text -->
+                <div class="col-md-6 text-start">
+                    <h1 class="display-1 fw-bold">Learn Smarter, Faster, and Interactively</h1>
+                    <p class="lead mt-3 mb-4">
+                        Transform videos into concise summaries, adaptive quizzes, and actionable insights for better
+                        learning outcomes.
+                    </p>
+                    <a href="#" class="btn btn-primary btn-lg shadow-lg">Get Started</a>
                 </div>
-                <!-- Repeat other feature cards here -->
+
+                <!-- Right Side: Image -->
+                <div class="col-md-6 text-center">
+                    <img src="/images/image.jpg" alt="Hero Image" class="img-fluid rounded shadow">
+                </div>
+
             </div>
         </div>
     </section>
 
 
+<!-- FEATURES SECTION -->
+<section class="features py-5">
+    <div class="container">
+        <div class="row g-4 text-center">
 
-<%- include("partials/footer.ejs") %>
+            <!-- Card 1: Upload MP4 Videos -->
+            <div class="col-md-3">
+                <div class="card feature-card h-100 p-4 border-0 shadow-sm">
+                    <div class="icon-wrapper mx-auto mb-3">
+                        <i class="bi bi-upload"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">Upload MP4 Videos</h5>
+                    <p class="text-muted">Upload MP4 video files directly from your device for AI-powered processing.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 2: Paste YouTube URLs -->
+            <div class="col-md-3">
+                <div class="card feature-card h-100 p-4 border-0 shadow-sm">
+                    <div class="icon-wrapper mx-auto mb-3">
+                        <i class="bi bi-link-45deg"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">Paste YouTube URLs</h5>
+                    <p class="text-muted">Paste YouTube links and instantly generate summaries, quizzes, and insights.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 3: Smart Summarization -->
+            <div class="col-md-3">
+                <div class="card feature-card h-100 p-4 border-0 shadow-sm">
+                    <div class="icon-wrapper mx-auto mb-3">
+                        <i class="bi bi-journal-text"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">Smart Summarization</h5>
+                    <p class="text-muted">Generate concise summaries that highlight key learning concepts.</p>
+                </div>
+            </div>
+
+            <!-- Card 4: Adaptive Quizzes -->
+            <div class="col-md-3">
+                <div class="card feature-card h-100 p-4 border-0 shadow-sm">
+                    <div class="icon-wrapper mx-auto mb-3">
+                        <i class="bi bi-bar-chart-line"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">Adaptive Quizzes</h5>
+                    <p class="text-muted">Create personalized quizzes that adapt to your learning progress.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
