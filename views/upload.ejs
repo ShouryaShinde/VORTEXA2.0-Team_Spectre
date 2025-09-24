@@ -1,18 +1,23 @@
 <%- include("partials/header.ejs") %>
-  <div class="Upload" style="background-color: #1d4ed8; text-align: center; padding: 1rem; border-radius: 8px;">
-    <h1 style="color: #fff; font-size: 1.8rem; margin: 0; max-width: 300;">Upload Your Educational Content</h1>
-  </div>
+ 
 
   <div class="upload-container">
-    <h2>Paste YouTube Video URL</h2>
-    <p>Enter a YouTube link to transcribe and summarize the video using AI.</p>
+  <h1>Upload Your Educational Content</h1>
+  <p>Upload video files to get started with AI-powered transcription and summarization</p>
 
-    <form id="youtube-form" action="/process-youtube" method="POST" class="d-flex flex-column align-items-center gap-3">
-      <input type="url" name="youtubeURL" placeholder="https://www.youtube.com/watch?v=VIDEO_ID"
-        class="form-control form-control-lg" required style="max-width: 600px;">
-      <button type="submit" class="btn btn-primary btn-lg px-4">Transcribe & Summarize</button>
-    </form>
+  <div class="source-selector">
+    <button class="active" id="upload-file-btn">Upload File</button>
+    
   </div>
+
+  <div class="upload-area" id="upload-area">
+    <div class="upload-icon">⬆️</div>
+    <p>Drop your video file here</p>
+    <span>Supports MP4, AVI, MOV, and other common video formats</span>
+    <input type="file" id="file-input" hidden />
+    <button id="browse-btn">Browse...</button>
+  </div>
+</div>
 
     <!-- Steps Section -->
     <section style="padding: 3rem 1rem; text-align: center; background: #f9fafb;">
@@ -31,9 +36,9 @@
                     text-align: center;
                     transition: transform 0.3s, box-shadow 0.3s;">
           <i class="bi bi-upload" style="font-size: 3rem; color: #fff; margin-bottom: 1rem;"></i>
-          <h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem; color: #fff;">Step 1: Paste Link</h3>
+          <h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem; color: #fff;">Step 1: Upload MP4 Video</h3>
           <p style="color: #fff; font-size: 0.95rem;">
-            Paste your YouTube video link into Quizzer.
+            Upload your MP4 video into Quizzer.
           </p>
         </div>
     
