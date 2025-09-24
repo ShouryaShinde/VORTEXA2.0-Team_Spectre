@@ -14,73 +14,115 @@
     </form>
   </div>
 
+    <!-- Steps Section -->
+    <section style="padding: 3rem 1rem; text-align: center; background: #f9fafb;">
+      <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem;">How to Use Quizzer?</h2>
+      <p style="color: #555; margin-bottom: 3rem;">Learn smarter with Quizzer in just 3 simple steps.</p>
+    
+      <div
+        style="display: flex; justify-content: center; gap: 2rem; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 1rem;">
+    
+        <!-- Step 1 -->
+        <div style="flex: 0 0 300px; 
+                    background: linear-gradient(135deg, #fbbf24, #f59e0b); 
+                    border-radius: 16px; 
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+                    padding: 2rem; 
+                    text-align: center;
+                    transition: transform 0.3s, box-shadow 0.3s;">
+          <i class="bi bi-upload" style="font-size: 3rem; color: #fff; margin-bottom: 1rem;"></i>
+          <h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem; color: #fff;">Step 1: Paste Link</h3>
+          <p style="color: #fff; font-size: 0.95rem;">
+            Paste your YouTube video link into Quizzer.
+          </p>
+        </div>
+    
+        <!-- Step 2 -->
+        <div style="flex: 0 0 300px; 
+                    background: linear-gradient(135deg, #06b6d4, #0ea5e9); 
+                    border-radius: 16px; 
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+                    padding: 2rem; 
+                    text-align: center;
+                    transition: transform 0.3s, box-shadow 0.3s;">
+          <i class="bi bi-file-earmark-text" style="font-size: 3rem; color: #fff; margin-bottom: 1rem;"></i>
+          <h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem; color: #fff;">Step 2: Summarize Content
+          </h3>
+          <p style="color: #fff; font-size: 0.95rem;">
+            Quizzer’s AI quickly extracts key points and summaries from your notes or videos.
+          </p>
+        </div>
+    
+        <!-- Step 3 -->
+        <div style="flex: 0 0 300px; 
+                    background: linear-gradient(135deg, #10b981, #34d399); 
+                    border-radius: 16px; 
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+                    padding: 2rem; 
+                    text-align: center;
+                    transition: transform 0.3s, box-shadow 0.3s;">
+          <i class="bi bi-ui-checks-grid" style="font-size: 3rem; color: #fff; margin-bottom: 1rem;"></i>
+          <h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem; color: #fff;">Step 3: Solve & Practice
+            Quizzes</h3>
+          <p style="color: #fff; font-size: 0.95rem;">
+            Reinforce learning by solving quizzes and flashcards. Track your progress over time.
+          </p>
+        </div>
+    
+      </div>
+    </section>
+
+
   <!-- Quizzer Promo Section -->
-  <div
-    style="display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin: 2rem auto; max-width: 1000px; padding: 2rem; border-radius: 12px; background-color: #f9fafb; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-    <div style="flex: 1;">
-      <h2 style="font-size: 1.6rem; font-weight: bold; margin-bottom: 1rem;">
-        Struggling to remember what you learned from videos?
-      </h2>
-      <p style="color: #444; line-height: 1.6;">
+  <!-- Subtle Blended Quizzer Promo Section -->
+  <div style="display: flex; flex-wrap: wrap; max-width: 1000px; margin: 2rem auto; border-radius: 16px; overflow: hidden; 
+              box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+              background: linear-gradient(135deg, #fde68a 0%, #fcd34d 45%, #93c5fd 55%, #60a5fa 100%);">
+  
+    <!-- Left Content -->
+    <div style="flex: 1 1 50%; padding: 2rem; color: #1f2937;">
+      <h2 style="font-size: 1.6rem; font-weight: bold; margin-bottom: 1rem;">Struggling to remember what you learned?</h2>
+      <p style="line-height: 1.6; font-size: 0.95rem;">
         <b>Quizzer</b> makes learning interactive and fun by turning any YouTube video or study material
         into quizzes and practice questions. No more passive watching — test yourself instantly,
         reinforce concepts, and track your progress with smart AI-generated questions.
-        Whether it's exam prep, tutorials, or lectures, Quizzer helps you learn actively and retain knowledge longer.
       </p>
     </div>
-    <div style="flex: 1; background-color: #e0f2fe; padding: 1.5rem; border-radius: 12px; text-align: center;">
+  
+    <!-- Right Content -->
+    <div style="flex: 1 1 50%; padding: 2rem; color: #1f2937; text-align: center;">
       <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 1rem;">Quizzer AI</h3>
-      <p style="color: #444; font-size: 0.95rem; margin-bottom: 1rem;">
+      <p style="font-size: 0.95rem; margin-bottom: 1rem;">
         Upload or link educational content and Quizzer will generate smart quizzes, flashcards,
         and summaries for you — making learning faster and smarter.
       </p>
-      <img src="/images/image2.png" alt="Quizzer Logo" style="max-width: 300px; margin-top: 2rem;">
+      <img src="/images/image2.png" alt="Quizzer Logo" style="max-width: 400px; margin-top: 1rem;">
       <p style="margin-top: 1rem; font-weight: bold;">quizzer.io</p>
     </div>
+  
   </div>
+  
+  <style>
+    /* Hover lift effect for subtle blended card */
+    div[style*="linear-gradient(135deg"] {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+  
+    div[style*="linear-gradient(135deg"]:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+  
+    /* Mobile stacking */
+    @media (max-width: 768px) {
+      div[style*="linear-gradient(135deg"] {
+        flex-direction: column;
+      }
+    }
+  </style>
 
-  <section style="padding: 3rem 1rem; text-align: center; background: #fff;">
-    <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem;">
-      How to Use Quizzer?
-    </h2>
-    <p style="color: #555; margin-bottom: 3rem;">
-      Learn smarter with Quizzer in just 3 simple steps.
-    </p>
-  
-    <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-  
-      <!-- Step 1 -->
-      <div
-        style="flex: 1; min-width: 280px; max-width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 2rem; text-align: center;">
-        <i class="bi bi-upload" style="font-size: 3rem; color: #007bff; margin-bottom: 1rem;"></i>
-        <h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem;">Step 1: Upload or Paste Link</h3>
-        <p style="color: #666; font-size: 0.95rem;">
-          Upload your study material or paste a YouTube video link into Quizzer.
-        </p>
-      </div>
-  
-      <!-- Step 2 (Summarize Content) -->
-      <div
-        style="flex: 1; min-width: 280px; max-width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 2rem; text-align: center;">
-        <i class="bi bi-file-earmark-text" style="font-size: 3rem; color: #17a2b8; margin-bottom: 1rem;"></i>
-        <h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem;">Step 2: Summarize Content</h3>
-        <p style="color: #666; font-size: 0.95rem;">
-          Quizzer’s AI quickly extracts key points and summaries from your notes or videos for easy understanding.
-        </p>
-      </div>
-  
-      <!-- Step 3 (Solve & Practice Quizzes) -->
-      <div
-        style="flex: 1; min-width: 280px; max-width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 2rem; text-align: center;">
-        <i class="bi bi-ui-checks-grid" style="font-size: 3rem; color: #28a745; margin-bottom: 1rem;"></i>
-        <h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem;">Step 3: Solve & Practice Quizzes</h3>
-        <p style="color: #666; font-size: 0.95rem;">
-          Reinforce learning by solving quizzes and flashcards. Review mistakes and track your progress over time.
-        </p>
-      </div>
-  
-    </div>
-  </section>
+
+
 
 
   <%- include("partials/footer.ejs") %>
