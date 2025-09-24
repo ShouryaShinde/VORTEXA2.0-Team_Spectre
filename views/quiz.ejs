@@ -1,159 +1,86 @@
 <%- include("partials/header.ejs") %>
 
-    <!-- Quiz Container -->
-    <div class="quiz-container">
-        <!-- Question Number -->
-        <div class="question-number" id="question-number">
-            Question 1
-        </div>
+<div class="quiz-container">
+  <% questions.forEach((q, index) => { %>
+ <div class="question-block" data-index="<%= index %>" <%= index === 0 ? "" : "style='display:none;'" %>>
 
-        <!-- Question Box -->
-        <div class="question-box" id="question-box">
-            <!-- Empty wide box for question text -->
-            The question text will appear here
-        </div>
+      <!-- Question Number -->
+      <div class="question-number">Question <%= index + 1 %></div>
 
-        <!-- Options Container -->
-        <div class="options-container">
-            <div class="option">Option 1</div>
-            <div class="option">Option 2</div>
-            <div class="option">Option 3</div>
-            <div class="option">Option 4</div>
-        </div>
+      <!-- Question Box -->
+      <div class="question-box"><%= q %></div>
 
-        <!-- Navigation Buttons -->
-        <div class="quiz-navigation">
-            <button id="prev-btn" class="nav-btn">Previous</button>
-            <button id="next-btn" class="nav-btn">Next</button>
-        </div>
+      <!-- Options -->
+      <div class="options-container">
+        <% options[index].forEach((opt, i) => { %>
+          <div class="option" data-q="<%= index %>" data-ans="<%= answers[index] %>" data-i="<%= i %>">
+            <%= opt %>
+          </div>
+        <% }) %>
+      </div>
     </div>
+  <% }) %>
 
-    <style>
-        /* Quiz Container */
-        .quiz-container {
-            width: 90%;
-            max-width: 800px;
-            margin: 2rem auto;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
+  <!-- Navigation -->
+  <div class="quiz-navigation">
+    <button id="prev-btn" class="nav-btn">Previous</button>
+    <button id="next-btn" class="nav-btn">Next</button>
+  </div>
 
-        /* Question Number */
-        .question-number {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #2563eb;
-            /* blue */
-            text-align: left;
-            margin-bottom: 0.25rem;
-        }
+  <!-- Score -->
+  <div id="score-box" style="margin-top:1rem; font-weight:bold; color:#2563eb;"></div>
+</div>
+<script>
+  let currentQuestion = 0;
+  let score = 0;
+  const questionBlocks = document.querySelectorAll(".question-block");
+  const scoreBox = document.getElementById("score-box");
 
-        /* Question Box */
-        .question-box {
-            width: 100%;
-            min-height: 150px;
-            border: 2px solid #2563eb;
-            border-radius: 12px;
-            background-color: #e9e9e9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #111827;
-            padding: 0.75rem 1rem;
-        }
+  function showQuestion(index) {
+    questionBlocks.forEach((block, i) => {
+      block.style.display = i === index ? "" : "none";
+    });
+  }
 
-        /* Options Container */
-        .options-container {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
+  // Option click handling
+  document.querySelectorAll(".option").forEach(opt => {
+    opt.addEventListener("click", () => {
+      const correct = parseInt(opt.dataset.ans);
+      const chosen = parseInt(opt.dataset.i);
 
-        /* Option Box */
-        .option {
-            flex: 1 1 calc(50% - 0.5rem);
-            min-height: 60px;
-            background-color: #e8e8e8;
-            border: 2px solid #2563eb;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
+      if (chosen === correct) {
+        opt.style.backgroundColor = "green";
+        opt.style.color = "white";
+        score++;
+      } else {
+        opt.style.backgroundColor = "red";
+        opt.style.color = "white";
+      }
 
-        .option:hover {
-            background: linear-gradient(135deg, #1d4ed8, #2563eb);
-            color: #fff;
-            transform: translateY(-2px);
-        }
+      // Disable options after click
+      opt.parentElement.querySelectorAll(".option").forEach(btn => {
+        btn.style.pointerEvents = "none";
+      });
 
-        /* Navigation Buttons */
-        .quiz-navigation {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 1rem;
-        }
+      scoreBox.textContent = `Score: ${score}/${questionBlocks.length}`;
+    });
+  });
 
-        .nav-btn {
-            padding: 0.6rem 1.5rem;
-            background-color: #e8e8e8;
-            color: #3d3d3d;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
+  // Navigation buttons
+  document.getElementById("next-btn").addEventListener("click", () => {
+    if (currentQuestion < questionBlocks.length - 1) {
+      currentQuestion++;
+      showQuestion(currentQuestion);
+    }
+  });
 
-        .nav-btn:hover {
-            background-color: rgb(70, 176, 70);
-            transform: translateY(-2px);
-        }
-    </style>
+  document.getElementById("prev-btn").addEventListener("click", () => {
+    if (currentQuestion > 0) {
+      currentQuestion--;
+      showQuestion(currentQuestion);
+    }
+  });
 
-    <script>
-        const questions = [
-            { text: "This is the text for question 1", options: ["A1", "B1", "C1", "D1"] },
-            { text: "This is the text for question 2", options: ["A2", "B2", "C2", "D2"] },
-            { text: "This is the text for question 3", options: ["A3", "B3", "C3", "D3"] }
-        ];
-
-        let currentQuestion = 0;
-        const questionBox = document.getElementById('question-box');
-        const questionNumber = document.getElementById('question-number');
-        const optionBoxes = document.querySelectorAll('.option');
-
-        function loadQuestion(index) {
-            questionNumber.textContent = `Question ${index + 1}`;
-            const q = questions[index];
-            questionBox.textContent = q.text;
-            optionBoxes.forEach((opt, i) => {
-                opt.textContent = q.options[i];
-            });
-        }
-
-        document.getElementById('next-btn').addEventListener('click', () => {
-            if (currentQuestion < questions.length - 1) {
-                currentQuestion++;
-                loadQuestion(currentQuestion);
-            }
-        });
-
-        document.getElementById('prev-btn').addEventListener('click', () => {
-            if (currentQuestion > 0) {
-                currentQuestion--;
-                loadQuestion(currentQuestion);
-            }
-        });
-
-        loadQuestion(currentQuestion);
-    </script>
-
-    <%- include("partials/footer.ejs") %>
+  // Initialize
+  showQuestion(currentQuestion);
+</script>

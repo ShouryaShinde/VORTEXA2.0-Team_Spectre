@@ -1,4 +1,4 @@
-// geminiRoutes.js
+// summarize.js
 import express from "express";
 import 'dotenv/config';
 import { GoogleGenAI } from "@google/genai";
@@ -6,24 +6,41 @@ import { GoogleGenAI } from "@google/genai";
 const router = express.Router();
 const ai = new GoogleGenAI({});
 
-// Route to generate summary and quiz
+// Function to generate summary + quiz from text
+async function generateFromGemini(transcriptText) {
+  const prompt = `
+    ${transcriptText}
+    Create a summary and send it back in 'summary',
+    create 3 questions based on the summary and store them in 'questions' array,
+    create 'options' array with 3 incorrect options and 1 correct option for each question,
+    create 'answers' array which stores the index of the correct answer for each question,
+    return all data in JSON format without markdown.
+  `;
+
+  const response = await ai.models.generateContent({
+    model: "gemini-2.5-flash",
+    contents: prompt
+  });
+
+  // Remove any backticks/markdown formatting
+  let jsonText = response.text.trim();
+  if (jsonText.startsWith("```")) {
+    jsonText = jsonText.replace(/```(json)?/g, "").trim();
+  }
+
+  return JSON.parse(jsonText);
+}
+
+// Route to generate summary and quiz from transcript
 router.get("/generate", async (req, res) => {
   try {
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: `
-        AI is the field of computer science that focuses on creating intelligent machines that can perform tasks that usually require human intelligence.
-        Create a summary and send it back in 'summary',
-        create 3 questions based on the summary and store them in 'questions' array,
-        create 'options' array with 3 incorrect options and 1 correct option for each question,
-        create 'answers' array which stores the index of the correct answer for each question,
-        return all data in JSON format without JSON markdown.
-      `
-    });
+    // Get text from query param or stored transcript in app.locals
+    const text = req.query.text || req.app.locals.transcript;
+    if (!text) return res.status(400).send("No text provided for summary generation");
 
-    const data = JSON.parse(response.text);
+    const data = await generateFromGemini(text);
 
-    // Store in locals to share between routes if needed
+    // Store in locals for /quiz-generated
     req.app.locals.summary = data.summary;
     req.app.locals.questions = data.questions;
     req.app.locals.options = data.options;
@@ -31,7 +48,6 @@ router.get("/generate", async (req, res) => {
 
     // Render summary page
     res.render("transcribe.ejs", { summary: data.summary });
-
   } catch (err) {
     console.error(err);
     res.status(500).send("Error generating content");
@@ -46,7 +62,7 @@ router.get("/quiz-generated", (req, res) => {
     return res.status(400).send("No quiz data available. First visit /generate");
   }
 
-  res.render("quizz.ejs", { questions, options, answers });
+  res.render("quiz.ejs", { questions, options, answers });
 });
 
 export default router;

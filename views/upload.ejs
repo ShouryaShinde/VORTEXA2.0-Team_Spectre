@@ -5,9 +5,7 @@
   <p>Upload video files to get started with AI-powered transcription and summarization</p>
 
   <div class="source-selector">
-    <a href="/generate">
-      <button class="active" id="upload-file-btn" >Upload File</button>
-    </a>
+    <button class="active" id="upload-file-btn">Upload File</button>
   </div>
 
   <div class="upload-area" id="upload-area">
@@ -17,6 +15,7 @@
     <input type="file" id="file-input" hidden />
     <button id="browse-btn">Browse...</button>
     <button id="remove-btn">Remove</button>
+    <button id="upload-btn">Upload</button> <!-- Added actual upload trigger -->
   </div>
 </div>
 
@@ -176,8 +175,5 @@
   });
 </script>
 
-
-
-
-
-  <%- include("partials/footer.ejs") %>
+<script src="/js/uploadHandler.js"></script>
+<%- include("partials/footer.ejs") %>
