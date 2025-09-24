@@ -41,10 +41,7 @@ body {
 
 .site-header img,
 .LogoImage {
-  height: 40px;
-  max-height: 40px;
-  width: auto;
-  object-fit: contain;
+  height : 3rem ;
 }
 
 /* ===============================
@@ -63,7 +60,7 @@ body {
   font-size: 3rem;
   font-weight: 800;
   line-height: 1.2;
-  color: #ffffff !important; /* FORCE pure white */
+  color: #ffffff !important;
 }
 
 .hero h1 span {
@@ -72,7 +69,7 @@ body {
 
 .hero p {
   font-size: 1.2rem;
-  color: #ffffff; /* PURE white for tagline */
+  color: #ffffff !important;
   max-width: 600px;
   margin-bottom: 2rem;
 }
@@ -113,13 +110,13 @@ body {
 .hero .stats h4 {
   font-size: 1.8rem;
   font-weight: 800;
-  color: #fbbf24; /* gold for numbers */
+  color: #fbbf24;
   margin-bottom: 0.3rem;
 }
 
 .hero .stats p {
   font-size: 1rem;
-  color: #ffffff !important; /* PURE white for labels */
+  color: #ffffff !important;
   margin: 0;
 }
 
@@ -155,76 +152,8 @@ body {
 }
 
 /* ===============================
-   FOOTER
+   UPLOAD SECTION
 =============================== */
-footer {
-  background: #1f2937;
-  color: #e5e7eb;
-  padding: 2rem 0;
-  text-align: center;
-}
-
-footer a {
-  color: #fbbf24;
-  text-decoration: none;
-  margin: 0 0.5rem;
-  transition: color 0.3s ease;
-}
-
-footer a:hover {
-  color: #f59e0b;
-}
-
-/* ===============================
-   RESPONSIVE TWEAKS
-=============================== */
-@media (max-width: 992px) {
-  .hero {
-    text-align: center;
-    padding: 5rem 0;
-  }
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-  .hero p {
-    font-size: 1.1rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .hero img {
-    margin-top: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-  .hero p {
-    font-size: 1rem;
-  }
-  .hero .stats h4 {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-  .hero p {
-    font-size: 0.95rem;
-  }
-  .hero .btn-primary,
-  .hero .btn-outline-secondary {
-    font-size: 0.9rem;
-    padding: 0.6rem 1.4rem;
-  }
-}
-
-/* ===============================
-   UPLOAD SECTION (Styled like Hero/Features)
-============================== */
 .upload-container {
   background: linear-gradient(135deg, #1d4ed8, #2563eb);
   color: #fff;
@@ -291,7 +220,9 @@ footer a:hover {
   box-shadow: 0 12px 35px rgba(251, 191, 36, 0.55);
 }
 
-/* Optional toggle buttons (matches features) */
+/* ===============================
+   TOGGLEABLE BUTTONS
+=============================== */
 .toggle-btn {
   padding: 0.6rem 1.5rem;
   margin: 0 0.25rem;
@@ -311,8 +242,58 @@ footer a:hover {
   color: #1f2937;
 }
 
-/* Responsive Upload Section */
+/* ===============================
+   FOOTER
+=============================== */
+footer {
+  background: #1f2937;
+  color: #e5e7eb;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+footer a {
+  color: #fbbf24;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #f59e0b;
+}
+
+/* ===============================
+   RESPONSIVE TWEAKS
+=============================== */
+@media (max-width: 992px) {
+  .hero {
+    text-align: center;
+    padding: 5rem 0;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero p {
+    font-size: 1.1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero img {
+    margin-top: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .hero .stats h4 {
+    font-size: 1.5rem;
+  }
   .upload-container {
     width: 95%;
     padding: 2.5rem 2rem;
@@ -337,151 +318,34 @@ footer a:hover {
   }
 }
 
+
 /* ===============================
-    TRANSCRIPTION & SUMMARY PAGE
-=============================== */
-.summary-container {
-  
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    font-family: inherit;
-}
-
-.main-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1f2937;
-    text-align: center;
-    margin-bottom: 0.5rem;
-}
-
-.subtitle {
-    font-size: 1rem;
-    color: #6b7280;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.content-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.summary-panel {
-    background: linear-gradient(135deg, #1d4ed8, #2563eb);
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    padding: 2rem;
-    width: 100%;
-    max-width: 700px;
-    margin-top: 2rem;
-    text-align: center;
-}
-
-.ai-summary {
-    color: #1f2937;
-    
-}
-
-.ai-summary-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-.ai-icon {
-    font-size: 1.5rem;
-    color: #2563eb;
-    margin-right: 0.75rem;
-}
-
-.ai-summary h2 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 0;
-    
-}
-
-.ai-summary h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.meta {
-    font-size: 0.85rem;
-    color: #6b7280;
-    margin-bottom: 1.5rem;
-}
-
-.ai-summary h4 {
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.key-points-list {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 1.5rem;
-}
-
-.key-points-list li {
-    font-size: 0.95rem;
-    color: #4b5563;
-    padding-left: 1.5rem;
-    position: relative;
-    margin-bottom: 0.5rem;
-}
-
-.key-points-list li::before {
-    content: "•";
-    color: #2563eb;
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-}
-
-.topics {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.topic-tag {
-    background: #e0e7ff;
-    color: #1d4ed8;
-    padding: 0.4rem 0.8rem;
-    border-radius: 9999px;
-    font-size: 0.8rem;
-    font-weight: 500;
-}
-
-.quiz-btn-container {
-  
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.generate-quiz-btn {
-   background: linear-gradient(135deg, #f59e0b, #fbbf24);
-    color: #1f2937;
-    font-weight: 600;
-    padding: 1rem 2rem;
+   TOGGLEABLE BUTTONS
+============================== */
+.toggle-btn {
+    padding: 0.5rem 1.25rem;
+    margin: 0 0.25rem;
     border: none;
     border-radius: 12px;
+    background: #e5e7eb;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
     transition: all 0.3s ease;
-    width: 100%;
-     box-shadow: 0 8px 25px rgba(251,191,36,0.4);
 }
 
-.generate-quiz-btn:hover {
-     box-shadow: 0 12px 35px rgba(251,191,36,0.55);
-    transform: translateY(-3px);
+.active-btn {
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    color: #fff;
+}
+
+.content-section {
+    margin-top: 20px;
+    border: 1px solid #d1d5db; /* Using a color from your file for consistency */
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.hidden {
+    display: none;
 }
