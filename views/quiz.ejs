@@ -1,5 +1,143 @@
 <%- include("partials/header.ejs") %>
 
+    <!-- Quiz Container -->
+    <div class="quiz-container">
+        <!-- Question Box -->
+        <div class="question-box" id="question-box">
+            <!-- Empty wide box for question -->
+            Question will appear here
+        </div>
 
+        <!-- Options Container -->
+        <div class="options-container">
+            <div class="option">Option 1</div>
+            <div class="option">Option 2</div>
+            <div class="option">Option 3</div>
+            <div class="option">Option 4</div>
+        </div>
 
-<%- include("partials/footer.ejs") %>
+        <!-- Navigation Buttons -->
+        <div class="quiz-navigation">
+            <button id="prev-btn" class="nav-btn">Previous</button>
+            <button id="next-btn" class="nav-btn">Next</button>
+        </div>
+    </div>
+
+    <style>
+        /* Quiz Container */
+        .quiz-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 2rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Question Box */
+        .question-box {
+            width: 100%;
+            min-height: 150px;
+            border: 2px solid #2563eb;
+            border-radius: 12px;
+            background-color: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        /* Options Container */
+        .options-container {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        /* Option Box */
+        .option {
+            flex: 1 1 calc(50% - 0.5rem);
+            min-height: 60px;
+            background-color: #fff;
+            border: 2px solid #2563eb;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option:hover {
+            background-color: #2563eb;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Navigation Buttons */
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+
+        .nav-btn {
+            padding: 0.6rem 1.5rem;
+            background-color: #e8e8e8;
+            color: #3d3d3d;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: rgb(70, 176, 70);
+            transform: translateY(-2px);
+        }
+    </style>
+
+    <script>
+        // Example JS to handle question navigation
+        const questions = [
+            { text: "Question 1", options: ["A1", "B1", "C1", "D1"] },
+            { text: "Question 2", options: ["A2", "B2", "C2", "D2"] },
+            { text: "Question 3", options: ["A3", "B3", "C3", "D3"] }
+        ];
+
+        let currentQuestion = 0;
+        const questionBox = document.getElementById('question-box');
+        const optionBoxes = document.querySelectorAll('.option');
+
+        function loadQuestion(index) {
+            const q = questions[index];
+            questionBox.textContent = q.text;
+            optionBoxes.forEach((opt, i) => {
+                opt.textContent = q.options[i];
+            });
+        }
+
+        document.getElementById('next-btn').addEventListener('click', () => {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                loadQuestion(currentQuestion);
+            }
+        });
+
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion(currentQuestion);
+            }
+        });
+
+        // Initialize first question
+        loadQuestion(currentQuestion);
+    </script>
+
+    <%- include("partials/footer.ejs") %>
