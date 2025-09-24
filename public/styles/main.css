@@ -210,3 +210,107 @@ footer a:hover {
   0% { opacity: 0; transform: translateY(25px);}
   100% { opacity: 1; transform: translateY(0);}
 }
+
+/* ===============================
+   UPLOAD SECTION
+============================== */
+.upload-container {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  text-align: center;
+  width: 800px;
+  margin: 2rem auto; /* center on page */
+  font-family: inherit; /* use main font */
+}
+
+.upload-container h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+  color: #1f2937;
+}
+
+.upload-container p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+}
+
+.source-selector {
+  margin-bottom: 1.5rem;
+}
+
+.source-selector button {
+  padding: 0.5rem 1.25rem;
+  margin: 0 0.25rem;
+  border: none;
+  border-radius: 12px;
+  background: #e5e7eb;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.source-selector button.active {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  color: #fff;
+}
+
+.upload-area {
+  border: 2px dashed #d1d5db;
+  padding: 1.75rem;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+  border-color: #2563eb;
+  background: #f0f4ff;
+}
+
+.upload-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #2563eb;
+}
+
+.upload-area p {
+  font-size: 0.95rem;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
+}
+
+.upload-area span {
+  display: block;
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+#browse-btn {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  color: #1f2937;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+#browse-btn:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 8px 25px rgba(251,191,36,0.45);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .upload-container {
+    width: 90%;
+    padding: 1.5rem 1.75rem;
+  }
+}
