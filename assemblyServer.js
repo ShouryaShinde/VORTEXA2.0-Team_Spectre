@@ -1,4 +1,5 @@
-// assemblyServer.js
+import dotenv from "dotenv";
+dotenv.config() ;
 import express from "express";
 import multer from "multer";
 import fs from "fs";
@@ -10,7 +11,9 @@ import axios from "axios";
 const router = express.Router();
 const upload = multer({ dest: "uploads/" });
 
-const ASSEMBLY_API_KEY = "9a005678cf114b4598364b4b53ca5880";
+const ASSEMBLY_API_KEY = process.env.ASSEMBLY_API_KEY ;
+console.log("Assembly Key:", process.env.ASSEMBLY_API_KEY ? "Loaded ✅" : "Not Found ❌");
+
 
 // Transcribe audio via AssemblyAI
 async function transcribeAudio(filePath) {

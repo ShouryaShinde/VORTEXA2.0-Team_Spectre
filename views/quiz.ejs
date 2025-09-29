@@ -1,26 +1,27 @@
 <%- include("partials/header.ejs") %>
 
 <div class="quiz-container">
-  <% questions.forEach((q, index) => { %>
- <div class="question-block" data-index="<%= index %>" <%= index === 0 ? "" : "style='display:none;'" %>>
+  <% if(locals.questions) { %>
+    <% questions.forEach((q, index) => { %>
+  <div class="question-block" data-index="<%= index %>" <%= index === 0 ? "" : "style='display:none;'" %>>
 
-      <!-- Question Number -->
-      <div class="question-number">Question <%= index + 1 %></div>
+        <!-- Question Number -->
+        <div class="question-number">Question <%= index + 1 %></div>
 
-      <!-- Question Box -->
-      <div class="question-box"><%= q %></div>
+        <!-- Question Box -->
+        <div class="question-box"><%= q %></div>
 
-      <!-- Options -->
-      <div class="options-container">
-        <% options[index].forEach((opt, i) => { %>
-          <div class="option" data-q="<%= index %>" data-ans="<%= answers[index] %>" data-i="<%= i %>">
-            <%= opt %>
-          </div>
-        <% }) %>
+        <!-- Options -->
+        <div class="options-container">
+          <% options[index].forEach((opt, i) => { %>
+            <div class="option" data-q="<%= index %>" data-ans="<%= answers[index] %>" data-i="<%= i %>">
+              <%= opt %>
+            </div>
+          <% }) %>
+        </div>
       </div>
-    </div>
-  <% }) %>
-
+    <% }) %>
+    
   <!-- Navigation -->
   <div class="quiz-navigation">
     <button id="prev-btn" class="nav-btn">Previous</button>
@@ -84,3 +85,11 @@
   // Initialize
   showQuestion(currentQuestion);
 </script>
+<% } else { %>
+<div class="container" >
+    <h3 style="padding-top: 30px;"> Upload a File first to generate quiz </h3><br>
+  <form>
+    <input type = "submit" class ="btn btn-primary" value="Upload" formaction="/upload" method="GET">
+  </form>
+</div>
+<% } %>
