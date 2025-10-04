@@ -6,7 +6,7 @@ Quizzer is an **AI-powered web app** that helps learners summarize educational v
 ## 🌍 Visit the Live Site
 
 🚀 Experience **Quizzer** live here:  
-🔗 **[https://quizzer-vortexa.onrender.com](https://quizzer-w3m3.onrender.com/)**    
+🔗 **[https://quizzer-w3m3.onrender.com](https://quizzer-w3m3.onrender.com/)**    
 
 ---
 
@@ -117,7 +117,7 @@ If you make any changes or commits after deployment:
 
 Your live site: 
 
-🔗 **[https://quizzer-vortexa.onrender.com](https://quizzer-w3m3.onrender.com/)**
+🔗 **[https://quizzer-w3m3.onrender.com](https://quizzer-w3m3.onrender.com/)**
 
 ---
 
