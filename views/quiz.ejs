@@ -3,7 +3,7 @@
 <div class="quiz-container">
   <% if(locals.questions) { %>
     <% questions.forEach((q, index) => { %>
-  <div class="question-block" data-index="<%= index %>" <%= index === 0 ? "" : "style='display:none;'" %>>
+      <div class="question-block" data-index="<%= index %>" <%= index === 0 ? "" : "style='display:none;'" %>>
 
         <!-- Question Number -->
         <div class="question-number">Question <%= index + 1 %></div>
@@ -14,7 +14,10 @@
         <!-- Options -->
         <div class="options-container">
           <% options[index].forEach((opt, i) => { %>
-            <div class="option" data-q="<%= index %>" data-ans="<%= answers[index] %>" data-i="<%= i %>">
+            <div class="option" 
+                 data-q="<%= index %>" 
+                 data-ans="<%= answers[index] %>" 
+                 data-i="<%= i %>">
               <%= opt %>
             </div>
           <% }) %>
@@ -22,15 +25,24 @@
       </div>
     <% }) %>
     
-  <!-- Navigation -->
-  <div class="quiz-navigation">
-    <button id="prev-btn" class="nav-btn">Previous</button>
-    <button id="next-btn" class="nav-btn">Next</button>
-  </div>
+    <!-- Navigation -->
+    <div class="quiz-navigation">
+      <button id="prev-btn" class="nav-btn">Previous</button>
+      <button id="next-btn" class="nav-btn">Next</button>
+    </div>
 
-  <!-- Score -->
-  <div id="score-box" style="margin-top:1rem; font-weight:bold; color:#2563eb;"></div>
+    <!-- Score -->
+    <div id="score-box"></div>
+  <% } else { %>
+    <div class="container" >
+      <h3 style="padding-top: 30px;"> Upload a File first to generate quiz </h3><br>
+      <form>
+        <input type="submit" class="btn btn-primary" value="Upload" formaction="/upload" method="GET">
+      </form>
+    </div>
+  <% } %>
 </div>
+
 <script>
   let currentQuestion = 0;
   let score = 0;
@@ -50,12 +62,10 @@
       const chosen = parseInt(opt.dataset.i);
 
       if (chosen === correct) {
-        opt.style.backgroundColor = "green";
-        opt.style.color = "white";
+        opt.classList.add('correct');
         score++;
       } else {
-        opt.style.backgroundColor = "red";
-        opt.style.color = "white";
+        opt.classList.add('wrong');
       }
 
       // Disable options after click
@@ -85,11 +95,5 @@
   // Initialize
   showQuestion(currentQuestion);
 </script>
-<% } else { %>
-<div class="container" >
-    <h3 style="padding-top: 30px;"> Upload a File first to generate quiz </h3><br>
-  <form>
-    <input type = "submit" class ="btn btn-primary" value="Upload" formaction="/upload" method="GET">
-  </form>
-</div>
-<% } %>
+
+<%- include("partials/footer.ejs") %>
