@@ -1,5 +1,12 @@
 # 🧠 Quizzer — AI-Powered Summarizer & Quiz Generator
 
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![EJS](https://img.shields.io/badge/EJS-4B32C3?style=for-the-badge)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Render](https://img.shields.io/badge/Deployed%20on-Render-46E3B7?style=for-the-badge&logo=render&logoColor=black)
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)
+
 Quizzer is an **AI-powered web app** that helps learners summarize educational videos and automatically generate **interactive quizzes** to test understanding — making learning more efficient and engaging.
 
 ---
@@ -125,7 +132,7 @@ Your live site:
 
 | Name | Role |
 |:------|:-----|
-| [Shourya Anil Shinde](https://github.com/ShouryaShinde) | Full Stack Developer |
+| [Shourya Shinde](https://github.com/ShouryaShinde) | Full Stack Developer |
 | [Ranjit Bhogil](https://github.com/CodeXSpecter) | Full Stack Developer |
 | [Raj Bhokare](https://github.com/RajBhokare) | Front-End Developer |
 | [Vedant Toke](https://github.com/vedanttoke20) | Front-End Developer |
