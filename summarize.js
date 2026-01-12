@@ -11,7 +11,7 @@ async function generateFromGemini(transcriptText) {
   const prompt = `
     ${transcriptText}
     Create a summary and send it back in 'summary',
-    create 3 questions based on the summary and store them in 'questions' array,
+    create questions based on the summary and store them in 'questions' array,
     create 'options' array with 3 incorrect options and 1 correct option for each question,
     create 'answers' array which stores the index of the correct answer for each question,
     return all data in JSON format without markdown.
